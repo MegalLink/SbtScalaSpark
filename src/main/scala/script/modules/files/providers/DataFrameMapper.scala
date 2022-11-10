@@ -8,15 +8,16 @@ import org.apache.log4j.Logger
 
 import javax.inject.Inject
 
-class DataFrameMapper@Inject()(sparkSession: SparkSession,logger: Logger){
+class DataFrameMapper@Inject()(sparkSession: SparkSession){
     def mapDataframeToHero(dataframe:DataFrame,filter:String=""):List[Hero] = {
+      dataframe.show()
       val viewName="heroes"
       dataframe.createOrReplaceTempView(viewName)
       val renamedDf = sparkSession.sql(heroesSql(viewName,filter))
       import sparkSession.implicits._
-
+      renamedDf.printSchema()
+      renamedDf.show()
       val heroes:List[Hero] = renamedDf.as[Hero].collect().toList
-      logger.info(s"total heroes obtained from file: ${heroes.length}")
       heroes
     }
 

@@ -15,7 +15,8 @@ lazy val commondDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-mllib" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
-  "net.codingwell" %% "scala-guice" % "5.1.0"
+  "net.codingwell" %% "scala-guice" % "5.1.0",
+  "com.crealytics" % "spark-excel_2.13" % "3.3.1_0.18.5"
 )
 
 lazy val overrides = Seq(
@@ -23,7 +24,6 @@ lazy val overrides = Seq(
   "com.fasterxml,jackson.core" % "jackson-databind" % "2.6.7",
   "com.fasterxml,jackson.core" % "jackson-module-scala" % "2.6.7.1",
 )
-
 
 lazy val root = (project in file("."))
   .settings(

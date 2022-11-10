@@ -10,7 +10,11 @@ class MainHandler @Inject()(
                            fileManager:FileManagerService
                            ) {
   def run():Unit={
-    val heroes=fileManager.getHeroesFromFile("src/main/resources/heroes.csv")
-    logger.info(s"first hero: ${heroes(0)}")
+    val heroesFromCSV=fileManager.getHeroesFromCSVFile("src/main/resources/heroes.csv")
+    val heroesFromExcel=fileManager.getHeroesFromExcelFile("src/main/resources/Heroes.xlsx")
+    logger.info("Heroes from CSV")
+    heroesFromCSV.foreach(hero=>logger.info(hero))
+    logger.info("Heroes from Excel")
+    heroesFromExcel.foreach(hero=>logger.info(hero))
   }
 }

@@ -12,14 +12,12 @@ class CSVReader @Inject()(sparkSession: SparkSession) {
     def read(filePath:String,separator: String=","): DataFrame = {
      sparkSession
        .read
-       .format("csv")
        .options(
          Map(
            "header"->"true",
            "delimiter"->separator
          )
        )
-       .load(filePath)
+       .csv(filePath)
     }
-  // all options https://github.com/databricks/spark-csv#features
 }

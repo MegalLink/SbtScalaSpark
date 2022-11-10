@@ -1,12 +1,12 @@
 package sbt.megallink
-package script
-
-import com.google.inject.{Guice, Injector, Module, Stage => InjectStage}
-import script.modules.handler.HandlerModule
-import script.modules.logger.LoggerModule
-import script.modules.glue.SparkModule
+package script.container
 
 import script.modules.files.FileModule
+import script.modules.glue.SparkModule
+import script.modules.handler.HandlerModule
+import script.modules.logger.LoggerModule
+
+import com.google.inject.{Guice, Injector, Stage => InjectStage}
 
 class InjectorCreator() {
   def build():Injector =
