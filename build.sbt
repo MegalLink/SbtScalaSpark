@@ -16,7 +16,9 @@ lazy val commondDependencies = Seq(
   "org.apache.spark" %% "spark-mllib" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "net.codingwell" %% "scala-guice" % "5.1.0",
-  "com.crealytics" % "spark-excel_2.13" % "3.3.1_0.18.5"
+  "com.crealytics" % "spark-excel_2.13" % "3.3.1_0.18.5",
+  "net.liftweb" %% "lift-json" % "3.5.0",
+  "net.liftweb" %% "lift-util" % "3.5.0"
 )
 
 lazy val overrides = Seq(

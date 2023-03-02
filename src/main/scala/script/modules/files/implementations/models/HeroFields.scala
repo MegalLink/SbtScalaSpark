@@ -1,5 +1,5 @@
 package sbt.megallink
-package script.modules.files.models
+package script.modules.files.implementations.models
 
 object HeroFields extends Enumeration {
   type HeroFields = String

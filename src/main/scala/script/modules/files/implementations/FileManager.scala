@@ -3,7 +3,7 @@ package script.modules.files.implementations
 
 import script.modules.files.repositories.FileRepository
 import script.modules.files.providers.{CSVReader, DataFrameMapper, ExcelReader}
-import script.modules.files.models.Hero
+import sbt.megallink.script.modules.files.implementations.models.Hero
 
 class FileManager(
           csvReader: CSVReader,
@@ -15,7 +15,7 @@ class FileManager(
     dataFrameMapper.mapDataframeToHero(df)
   }
 
-  override def getHeroesFromExcel(filePath:String):List[Hero]={
+  override def getHeroesFromExcel(filePath:String):List[Hero] = {
     val df=excelReader.read(filePath,"A4")
     dataFrameMapper.mapDataframeToHero(df)
   }

@@ -1,8 +1,6 @@
 package sbt.megallink
 package script.modules.files.providers
 
-import org.apache.spark
-import org.apache.spark.SparkContext
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 import javax.inject.Inject
