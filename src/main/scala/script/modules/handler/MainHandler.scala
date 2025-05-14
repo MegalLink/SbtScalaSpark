@@ -4,12 +4,14 @@ package script.modules.handler
 import com.google.inject.Inject
 import org.apache.log4j.Logger
 import sbt.megallink.script.modules.files.services.FileManagerService
-import net.liftweb.json.{DefaultFormats,parse}
+import net.liftweb.json.{DefaultFormats, parse}
 import net.liftweb.util.StringHelpers.camelifyMethod
 import sbt.megallink.script.modules.files.implementations.models.Person
+import sbt.megallink.script.modules.spark.implementations.MySparkManager
 class MainHandler @Inject()(
                            logger:Logger,
-                           fileManager:FileManagerService
+                           fileManager:FileManagerService,
+                           sparkManager:MySparkManager
                            ) {
   def run():Unit={
     val heroesFromCSV=fileManager.getHeroesFromCSVFile("src/main/resources/heroes.csv")
@@ -19,6 +21,7 @@ class MainHandler @Inject()(
     logger.info(s"Heroes from Excel:${heroesFromExcel.length}")
     heroesFromExcel.foreach(hero=>logger.info(hero))
     testLift()
+    sparkManager.testRdd()
   }
 
   def testLift(): Unit ={

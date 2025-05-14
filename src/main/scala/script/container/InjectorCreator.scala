@@ -5,8 +5,9 @@ import script.modules.files.FileModule
 import script.modules.glue.SparkModule
 import script.modules.handler.HandlerModule
 import script.modules.logger.LoggerModule
-
+import sbt.megallink.script.modules.spark.MySparkModule
 import com.google.inject.{Guice, Injector, Stage => InjectStage}
+
 
 class InjectorCreator() {
   def build():Injector =
@@ -15,6 +16,7 @@ class InjectorCreator() {
       new LoggerModule(),
       new SparkModule(),
       new FileModule(),
+      new MySparkModule(),
       new HandlerModule(),
     )
 }

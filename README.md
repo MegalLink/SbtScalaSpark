@@ -10,3 +10,6 @@ go to sbt build file to see dependencies versions
 ### Some documentation of libraries
     - spark-excel to read excel files options [Excel Options](https://index.scala-lang.org/crealytics/spark-excel)
     - spark csv file reader options [CSV options](https://github.com/databricks/spark-csv#features)
+
+
+# Works with scala 1.8 from 
